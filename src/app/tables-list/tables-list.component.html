@@ -1,0 +1,19 @@
+<div class="container">
+  <mat-toolbar>
+    <button mat-icon-button class="example-icon" (click)="onBackClick()">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div *ngIf="tables else spinner">
+    <mat-selection-list [multiple]="false">
+      <mat-list-option *ngFor="let table of tables" [value]="table" (click)="openTableDialog(table)">
+        {{table.title}}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+
+  <ng-template #spinner class="spinner">
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</div>

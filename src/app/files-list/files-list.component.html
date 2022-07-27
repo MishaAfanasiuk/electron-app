@@ -1,0 +1,16 @@
+<div class="container">
+  <mat-toolbar></mat-toolbar>
+
+  <div *ngIf="files else spinner">
+    <mat-selection-list [multiple]="false">
+      <mat-list-option *ngFor="let file of files" [value]="file" (click)="openFile(file)">
+        {{file}}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+
+  <ng-template #spinner class="spinner">
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</div>
+
