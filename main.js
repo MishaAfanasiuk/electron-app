@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain, ipcRenderer} = require('electron')
+const {app, BrowserWindow, ipcMain} = require('electron')
 const url = require("url");
 const path = require("path");
 
@@ -21,7 +21,7 @@ function createWindow () {
 
   mainWindow.loadURL(
     url.format({
-      pathname: path.join(__dirname, `/dist/electron-app/index.html`),
+      pathname: path.join(__dirname, `/dist/index.html`),
       protocol: "file:",
       slashes: true
     })

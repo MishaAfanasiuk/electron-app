@@ -5,12 +5,23 @@
   "scripts": {
     "ng": "ng",
     "start": "ng build --base-href ./ && electron .",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "dist": "ng build --base-href ./ && electron-builder -mw",
+    "ng-build": "ng build",
+    "ng-test": "ng test",
+    "ng-lint": "ng lint",
+    "bg-e2e": "ng e2e"
   },
-  "private": true,
+  "build": {
+    "appId": "electron-app",
+    "extends": null,
+    "files": [ "./dist/**/*", "main.js", "./server/**/*", "./files/**/*"],
+    "extraResources": {
+      "from": "./files",
+      "to": "files"
+    },
+    "asar": false
+  },
+  "private": false,
   "dependencies": {
     "@angular/animations": "^14.1.0",
     "@angular/cdk": "^14.1.0",
@@ -33,6 +44,7 @@
     "@angular/compiler-cli": "^14.1.0",
     "@types/jasmine": "~4.0.0",
     "electron": "^19.0.9",
+    "electron-builder": "^23.1.0",
     "jasmine-core": "~4.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
